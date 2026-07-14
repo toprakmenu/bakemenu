@@ -52,6 +52,14 @@ cortado: 210,
 bitkiCaylari: 180,
 
     // Soğuk İçecekler
+su: 50,
+soda: 80,
+icedAmericano: 210,
+icedLatte: 240,
+portakalliLimonata: 190,
+hibiscus: 200,
+kombucha: 180,
+gazoz: 150,
 
     // Ekmekler
 eksiMayaliKoyEkmegi: 180,
