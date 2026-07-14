@@ -24,6 +24,10 @@ const prices = {
     // Soğuk İçecekler
 
     // Ekmekler
+eksiMayaliKoyEkmegi: 180,
+eksiMayaliSiyezEkmegi: 250,
+eksiMayaliKarabugdayEkmegi: 250,
+briocheEkmegi: 320,
 
     // Tezgah Ürünleri
 
