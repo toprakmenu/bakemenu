@@ -12,7 +12,7 @@ const prices = {
     // Kruvasan Sandviçler
 
     // Focaccia Sandviçler
-focacciaCaprese: 42,
+focacciaCaprese: 420,
 focacciaHindiFume: 440,
 focacciaRozbif: 460
 
