@@ -44,6 +44,14 @@ karabugdayPogaca: 100,
 dereotluPogaca: 100,
 
     // Tatlılar
+cookie: 160,
+glutensizFrambuazBrownie: 340,
+tiramisu: 330,
+cheesecake: 320,
+cinnamonRoll: 240,
+antepVisneRoll: 350,
+haftaninKeki: 160,
+elmaliKurabiye: 160,
 
     // Sıcak İçecekler
 cay: 70,
