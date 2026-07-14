@@ -37,7 +37,9 @@ text-align:center;
 flex:1;
 }
 
-.spacer{width:60px}
+.spacer{
+width:60px;
+}
 
 .wrap{
 max-width:720px;
@@ -69,10 +71,27 @@ background:#f7f7f7;
 flex:0 0 72px;
 }
 
-.item__body{flex:1;}
-.item__name{font-weight:900;font-size:15px;}
-.item__desc{margin-top:4px;color:#7a7a7a;font-size:13px;}
-.item__price{font-weight:1000;white-space:nowrap;padding-left:8px;}
+.item__body{
+min-width:0;
+flex:1;
+}
+
+.item__name{
+font-weight:900;
+font-size:15px;
+}
+
+.item__desc{
+margin-top:4px;
+color:#7a7a7a;
+font-size:13px;
+}
+
+.item__price{
+font-weight:1000;
+white-space:nowrap;
+padding-left:8px;
+}
 
 /* LIGHTBOX */
 .lightbox{
@@ -88,12 +107,14 @@ visibility:hidden;
 pointer-events:none;
 transition:opacity .18s ease,visibility 0s linear .18s;
 }
+
 .lightbox.is-open{
 opacity:1;
 visibility:visible;
 pointer-events:auto;
 transition:opacity .18s ease,visibility 0s linear 0s;
 }
+
 .lb-backdrop{
 position:absolute;
 inset:0;
@@ -101,7 +122,10 @@ background:rgba(0,0,0,.65);
 opacity:0;
 transition:opacity .18s ease;
 }
-.lightbox.is-open .lb-backdrop{opacity:1;}
+
+.lightbox.is-open .lb-backdrop{
+opacity:1;
+}
 
 .lb-panel{
 position:relative;
@@ -110,7 +134,10 @@ transform:translateY(10px) scale(.985);
 transition:transform .20s ease;
 z-index:2;
 }
-.lightbox.is-open .lb-panel{transform:translateY(0) scale(1);}
+
+.lightbox.is-open .lb-panel{
+transform:translateY(0) scale(1);
+}
 
 .lb-card{
 background:#fff;
@@ -135,11 +162,13 @@ gap:12px;
 padding:14px 16px 16px;
 border-top:1px solid rgba(0,0,0,.08);
 }
+
 .lb-title{
 font-weight:1000;
 font-size:22px;
 line-height:1.1;
 }
+
 .lb-price{
 font-weight:1000;
 font-size:22px;
@@ -162,96 +191,199 @@ display:grid;
 place-items:center;
 cursor:pointer;
 }
+
+.lb-close:active{
+transform:scale(.98);
+}
 </style>
 </head>
 
 <body>
 
 <header class="topbar">
-<a class="back" href="index.html" onclick="if(history.length>1){history.back(); return false;}">
-  ← GERİ
+<a
+class="back"
+href="index.html"
+onclick="if(history.length>1){history.back(); return false;}"
+>
+← GERİ
 </a>
+
 <div class="page-title">TEZGAH ÜRÜNLERİ</div>
 <div class="spacer"></div>
 </header>
 
 <main class="wrap">
 
+<a
+class="item"
+href="javascript:void(0)"
+data-title="Çilek Reçeli"
+data-price-key="cilekReceli"
+data-img="images/cilekreceli.webp"
+>
+<img
+class="item__img"
+src="images/cilekreceli.webp"
+alt="Çilek Reçeli"
+>
 
-
-<a class="item" href="javascript:void(0)" data-title="Çilek Reçeli" data-price="320 TL" data-img="images/cilekreceli.webp">
-<img class="item__img" src="images/cilekreceli.webp">
 <div class="item__body">
 <div class="item__name">Çilek Reçeli</div>
 <div class="item__desc">(El yapımı)</div>
 </div>
-<div class="item__price">320 TL</div>
+
+<div class="item__price"></div>
 </a>
 
-<a class="item" href="javascript:void(0)" data-title="Acuka" data-price="350 TL" data-img="images/acuka.webp">
-<img class="item__img" src="images/acuka.webp">
+<a
+class="item"
+href="javascript:void(0)"
+data-title="Acuka"
+data-price-key="acuka"
+data-img="images/acuka.webp"
+>
+<img
+class="item__img"
+src="images/acuka.webp"
+alt="Acuka"
+>
+
 <div class="item__body">
 <div class="item__name">Acuka</div>
 <div class="item__desc">(El yapımı)</div>
 </div>
-<div class="item__price">350 TL</div>
+
+<div class="item__price"></div>
 </a>
 
-<a class="item" href="javascript:void(0)" data-title="Ekşi Maya Kruton" data-price="150 TL" data-img="images/kuruton.webp">
-<img class="item__img" src="images/kuruton.webp">
+<a
+class="item"
+href="javascript:void(0)"
+data-title="Ekşi Maya Kruton"
+data-price-key="eksiMayaKruton"
+data-img="images/kuruton.webp"
+>
+<img
+class="item__img"
+src="images/kuruton.webp"
+alt="Ekşi Maya Kruton"
+>
+
 <div class="item__body">
 <div class="item__name">Ekşi Maya Kruton</div>
 <div class="item__desc">(El yapımı)</div>
 </div>
-<div class="item__price">150 TL</div>
+
+<div class="item__price"></div>
 </a>
 
-<a class="item" href="javascript:void(0)" data-title="Granola" data-price="180 TL" data-img="images/granolapaket.webp">
-<img class="item__img" src="images/granolapaket.webp">
+<a
+class="item"
+href="javascript:void(0)"
+data-title="Granola"
+data-price-key="granolaPaket"
+data-img="images/granolapaket.webp"
+>
+<img
+class="item__img"
+src="images/granolapaket.webp"
+alt="Granola"
+>
+
 <div class="item__body">
 <div class="item__name">Granola</div>
 <div class="item__desc">(El yapımı)</div>
 </div>
-<div class="item__price">180 TL</div>
+
+<div class="item__price"></div>
 </a>
 
-<a class="item" href="javascript:void(0)" data-title="Karabuğday Granola" data-price="220 TL" data-img="images/placeholder.png">
-<img class="item__img" src="images/placeholder.png">
+<a
+class="item"
+href="javascript:void(0)"
+data-title="Karabuğday Granola"
+data-price-key="karabugdayGranola"
+data-img="images/placeholder.png"
+>
+<img
+class="item__img"
+src="images/placeholder.png"
+alt="Karabuğday Granola"
+>
+
 <div class="item__body">
 <div class="item__name">Karabuğday Granola</div>
 <div class="item__desc">(El yapımı)</div>
 </div>
-<div class="item__price">220 TL</div>
+
+<div class="item__price"></div>
 </a>
 
+<a
+class="item"
+href="javascript:void(0)"
+data-title="Zeytinyağı (500 ml - Cam Şişe)"
+data-price-key="zeytinyagiCamSise"
+data-img="images/zeyginyagisise.webp"
+>
+<img
+class="item__img"
+src="images/zeyginyagisise.webp"
+alt="Zeytinyağı Cam Şişe"
+>
 
-  
-<a class="item" href="javascript:void(0)" data-title="Zeytinyağı (500 ml - Cam Şişe)" data-price="500 TL" data-img="images/zeyginyagisise.webp">
-<img class="item__img" src="images/zeyginyagisise.webp">
 <div class="item__body">
 <div class="item__name">Zeytinyağı (500 ml - Cam Şişe)</div>
 <div class="item__desc">(Soğuk sıkım Kalemaki zeytinyağları)</div>
 </div>
-<div class="item__price">500 TL</div>
+
+<div class="item__price"></div>
 </a>
 
-<a class="item" href="javascript:void(0)" data-title="Zeytinyağı (500 ml - Metal Kutu)" data-price="470 TL" data-img="images/zeytinyagikutu.webp">
-<img class="item__img" src="images/zeytinyagikutu.webp">
+<a
+class="item"
+href="javascript:void(0)"
+data-title="Zeytinyağı (500 ml - Metal Kutu)"
+data-price-key="zeytinyagiMetalKutu"
+data-img="images/zeytinyagikutu.webp"
+>
+<img
+class="item__img"
+src="images/zeytinyagikutu.webp"
+alt="Zeytinyağı Metal Kutu"
+>
+
 <div class="item__body">
 <div class="item__name">Zeytinyağı (500 ml - Metal Kutu)</div>
 <div class="item__desc">(Soğuk sıkım Kalemaki zeytinyağları)</div>
 </div>
-<div class="item__price">470 TL</div>
+
+<div class="item__price"></div>
 </a>
 
 </main>
 
-<div id="lb" class="lightbox">
+<div id="lb" class="lightbox" aria-hidden="true">
 <div class="lb-backdrop" id="lbBackdrop"></div>
-<div class="lb-panel">
-<button class="lb-close" id="lbClose">✕</button>
+
+<div
+class="lb-panel"
+role="dialog"
+aria-modal="true"
+aria-label="Ürün Fotoğrafı"
+>
+<button
+class="lb-close"
+id="lbClose"
+aria-label="Kapat"
+>
+✕
+</button>
+
 <div class="lb-card">
-<img id="lbImg" class="lb-img">
+<img id="lbImg" class="lb-img" alt="">
+
 <div class="lb-meta">
 <div id="lbTitle" class="lb-title"></div>
 <div id="lbPrice" class="lb-price"></div>
@@ -260,53 +392,103 @@ cursor:pointer;
 </div>
 </div>
 
-<script>
-const lb=document.getElementById("lb");
-const lbBackdrop=document.getElementById("lbBackdrop");
-const lbClose=document.getElementById("lbClose");
-const lbImg=document.getElementById("lbImg");
-const lbTitle=document.getElementById("lbTitle");
-const lbPrice=document.getElementById("lbPrice");
+<script src="prices.js"></script>
 
-let scrollY=0;
-function lockScroll(){
-scrollY=window.scrollY||0;
-document.body.style.position="fixed";
-document.body.style.top=`-${scrollY}px`;
-document.body.style.width="100%";
+<script>
+const lb = document.getElementById("lb");
+const lbBackdrop = document.getElementById("lbBackdrop");
+const lbClose = document.getElementById("lbClose");
+const lbImg = document.getElementById("lbImg");
+const lbTitle = document.getElementById("lbTitle");
+const lbPrice = document.getElementById("lbPrice");
+
+let scrollY = 0;
+
+function formatPrice(value){
+if(value === undefined || value === null || value === ""){
+return "";
 }
+
+return `${value} TL`;
+}
+
+function loadPrices(){
+document.querySelectorAll(".item").forEach(item => {
+const priceKey = item.dataset.priceKey;
+const priceValue = prices[priceKey];
+const formattedPrice = formatPrice(priceValue);
+
+item.dataset.price = formattedPrice;
+
+const priceElement = item.querySelector(".item__price");
+
+if(priceElement){
+priceElement.textContent = formattedPrice;
+}
+});
+}
+
+function lockScroll(){
+scrollY = window.scrollY || 0;
+document.body.style.position = "fixed";
+document.body.style.top = `-${scrollY}px`;
+document.body.style.left = "0";
+document.body.style.right = "0";
+document.body.style.width = "100%";
+}
+
 function unlockScroll(){
-document.body.style.position="";
-document.body.style.top="";
+document.body.style.position = "";
+document.body.style.top = "";
+document.body.style.left = "";
+document.body.style.right = "";
+document.body.style.width = "";
 window.scrollTo(0,scrollY);
 }
 
-function openLB({img,title,price}){
-lbImg.src=img;
-lbTitle.textContent=title;
-lbPrice.textContent=price;
+function openLB({img,title,price,alt}){
+lbImg.src = img;
+lbImg.alt = alt || title || "";
+lbTitle.textContent = title || "";
+lbPrice.textContent = price || "";
+
 lb.classList.add("is-open");
+lb.setAttribute("aria-hidden","false");
+
 lockScroll();
 }
+
 function closeLB(){
 lb.classList.remove("is-open");
-lbImg.src="";
+lb.setAttribute("aria-hidden","true");
+lbImg.src = "";
+
 unlockScroll();
 }
 
-document.querySelectorAll(".item").forEach(a=>{
-a.addEventListener("click",(e)=>{
-e.preventDefault();
+loadPrices();
+
+document.querySelectorAll(".item").forEach(item => {
+item.addEventListener("click",event => {
+event.preventDefault();
+
 openLB({
-img:a.dataset.img,
-title:a.dataset.title,
-price:a.dataset.price
+img:item.dataset.img,
+title:item.dataset.title,
+price:item.dataset.price,
+alt:item.querySelector("img")?.alt || ""
 });
 });
 });
 
 lbClose.addEventListener("click",closeLB);
 lbBackdrop.addEventListener("click",closeLB);
+
+document.addEventListener("keydown",event => {
+if(event.key === "Escape" && lb.classList.contains("is-open")){
+closeLB();
+}
+});
 </script>
 
 </body>
