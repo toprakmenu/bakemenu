@@ -10,6 +10,10 @@ const prices = {
     // Tartineler
 
     // Kruvasan Sandviçler
+capreseKruvasan: 420,
+hindiFumeKruvasan: 450,
+rozbifKruvasan: 460,
+yumurtaliHindiFumeKruvasan: 460,
 
     // Focaccia Sandviçler
 focacciaCaprese: 420,
