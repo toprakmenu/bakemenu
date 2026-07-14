@@ -1,6 +1,8 @@
 const prices = {
 
     // Kahvaltı
+    toprakGranola: 380,
+    toprakKahvalti: 420,
 
     // Tartineler
 
