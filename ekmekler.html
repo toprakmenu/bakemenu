@@ -88,12 +88,14 @@ visibility:hidden;
 pointer-events:none;
 transition:opacity .18s ease,visibility 0s linear .18s;
 }
+
 .lightbox.is-open{
 opacity:1;
 visibility:visible;
 pointer-events:auto;
 transition:opacity .18s ease,visibility 0s linear 0s;
 }
+
 .lb-backdrop{
 position:absolute;
 inset:0;
@@ -101,6 +103,7 @@ background:rgba(0,0,0,.65);
 opacity:0;
 transition:opacity .18s ease;
 }
+
 .lightbox.is-open .lb-backdrop{opacity:1;}
 
 .lb-panel{
@@ -110,7 +113,10 @@ transform:translateY(10px) scale(.985);
 transition:transform .20s ease;
 z-index:2;
 }
-.lightbox.is-open .lb-panel{transform:translateY(0) scale(1);}
+
+.lightbox.is-open .lb-panel{
+transform:translateY(0) scale(1);
+}
 
 .lb-card{
 background:#fff;
@@ -135,11 +141,13 @@ gap:12px;
 padding:14px 16px 16px;
 border-top:1px solid rgba(0,0,0,.08);
 }
+
 .lb-title{
 font-weight:1000;
 font-size:22px;
 line-height:1.1;
 }
+
 .lb-price{
 font-weight:1000;
 font-size:22px;
@@ -179,67 +187,73 @@ cursor:pointer;
 
 <a class="item" href="javascript:void(0)"
 data-title="Ekşi Mayalı Köy Ekmeği"
-data-price="180 TL"
+data-price-key="eksiMayaliKoyEkmegi"
 data-img="images/eksimayaekmek.webp">
-<img class="item__img" src="images/eksimayaekmek.webp">
+<img class="item__img" src="images/eksimayaekmek.webp" alt="Ekşi Mayalı Köy Ekmeği">
 <div class="item__body">
 <div class="item__name">Ekşi Mayalı Köy Ekmeği</div>
-<div class="item__desc">(Cevizli ve ya Zeytinli sipariş edilebilir)</div>
+<div class="item__desc">(Cevizli veya zeytinli sipariş edilebilir)</div>
 </div>
-<div class="item__price">180 TL</div>
+<div class="item__price"></div>
 </a>
 
 <a class="item" href="javascript:void(0)"
 data-title="Ekşi Mayalı Siyez Ekmeği"
-data-price="250 TL"
+data-price-key="eksiMayaliSiyezEkmegi"
 data-img="images/siyezekmek.webp">
-<img class="item__img" src="images/siyezekmek.webp">
+<img class="item__img" src="images/siyezekmek.webp" alt="Ekşi Mayalı Siyez Ekmeği">
 <div class="item__body">
 <div class="item__name">Ekşi Mayalı Siyez Ekmeği</div>
 <div class="item__desc">(Sipariş üzerine üretim yapılır)</div>
 </div>
-<div class="item__price">250 TL</div>
+<div class="item__price"></div>
 </a>
 
 <a class="item" href="javascript:void(0)"
 data-title="Ekşi Mayalı Karabuğday Ekmeği (Glutensiz)"
-data-price="250 TL"
+data-price-key="eksiMayaliKarabugdayEkmegi"
 data-img="images/karabugdayekmeği.webp">
-<img class="item__img" src="images/karabugdayekmeği.webp">
+<img class="item__img" src="images/karabugdayekmeği.webp" alt="Ekşi Mayalı Karabuğday Ekmeği">
 <div class="item__body">
 <div class="item__name">Ekşi Mayalı Karabuğday Ekmeği (Glutensiz)</div>
 <div class="item__desc">(Sipariş üzerine üretim yapılır)</div>
 </div>
-<div class="item__price">250 TL</div>
+<div class="item__price"></div>
 </a>
 
 <a class="item" href="javascript:void(0)"
 data-title="Brioche Ekmeği"
-data-price="320 TL"
+data-price-key="briocheEkmegi"
 data-img="images/briochekmek.webp">
-<img class="item__img" src="images/briochekmek.webp">
+<img class="item__img" src="images/briochekmek.webp" alt="Brioche Ekmeği">
 <div class="item__body">
 <div class="item__name">Brioche Ekmeği</div>
 <div class="item__desc">(Sipariş üzerine üretim yapılır)</div>
 </div>
-<div class="item__price">320 TL</div>
+<div class="item__price"></div>
 </a>
 
 </main>
 
-<div id="lb" class="lightbox">
+<div id="lb" class="lightbox" aria-hidden="true">
 <div class="lb-backdrop" id="lbBackdrop"></div>
+
 <div class="lb-panel">
-<button class="lb-close" id="lbClose">✕</button>
+<button class="lb-close" id="lbClose" aria-label="Kapat">✕</button>
+
 <div class="lb-card">
-<img id="lbImg" class="lb-img">
+<img id="lbImg" class="lb-img" alt="">
+
 <div class="lb-meta">
 <div id="lbTitle" class="lb-title"></div>
 <div id="lbPrice" class="lb-price"></div>
 </div>
+
 </div>
 </div>
 </div>
+
+<script src="prices.js"></script>
 
 <script>
 const lb=document.getElementById("lb");
@@ -250,44 +264,89 @@ const lbTitle=document.getElementById("lbTitle");
 const lbPrice=document.getElementById("lbPrice");
 
 let scrollY=0;
+
+function formatPrice(value){
+if(value === undefined || value === null || value === ""){
+return "";
+}
+
+return `${value} TL`;
+}
+
+function loadPrices(){
+document.querySelectorAll(".item").forEach(item=>{
+const priceKey=item.dataset.priceKey;
+const priceValue=prices[priceKey];
+const formattedPrice=formatPrice(priceValue);
+
+item.dataset.price=formattedPrice;
+
+const priceElement=item.querySelector(".item__price");
+
+if(priceElement){
+priceElement.textContent=formattedPrice;
+}
+});
+}
+
 function lockScroll(){
 scrollY=window.scrollY||0;
 document.body.style.position="fixed";
 document.body.style.top=`-${scrollY}px`;
+document.body.style.left="0";
+document.body.style.right="0";
 document.body.style.width="100%";
 }
+
 function unlockScroll(){
 document.body.style.position="";
 document.body.style.top="";
+document.body.style.left="";
+document.body.style.right="";
+document.body.style.width="";
 window.scrollTo(0,scrollY);
 }
 
-function openLB({img,title,price}){
+function openLB({img,title,price,alt}){
 lbImg.src=img;
-lbTitle.textContent=title;
-lbPrice.textContent=price;
+lbImg.alt=alt||title||"";
+lbTitle.textContent=title||"";
+lbPrice.textContent=price||"";
 lb.classList.add("is-open");
+lb.setAttribute("aria-hidden","false");
 lockScroll();
 }
+
 function closeLB(){
 lb.classList.remove("is-open");
+lb.setAttribute("aria-hidden","true");
 lbImg.src="";
 unlockScroll();
 }
 
-document.querySelectorAll(".item").forEach(a=>{
-a.addEventListener("click",(e)=>{
-e.preventDefault();
+loadPrices();
+
+document.querySelectorAll(".item").forEach(item=>{
+item.addEventListener("click",(event)=>{
+event.preventDefault();
+
 openLB({
-img:a.dataset.img,
-title:a.dataset.title,
-price:a.dataset.price
+img:item.dataset.img,
+title:item.dataset.title,
+price:item.dataset.price,
+alt:item.querySelector("img")?.alt||""
 });
 });
 });
 
 lbClose.addEventListener("click",closeLB);
 lbBackdrop.addEventListener("click",closeLB);
+
+document.addEventListener("keydown",(event)=>{
+if(event.key==="Escape" && lb.classList.contains("is-open")){
+closeLB();
+}
+});
 </script>
 
 </body>
