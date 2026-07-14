@@ -70,5 +70,8 @@ briocheEkmegi: 320,
     // Tezgah Ürünleri
 
     // Sporcu Menüsü
+balanceBowl: 0,
+fitPlate: 0,
+powerPlate: 0,
 
 };
