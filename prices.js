@@ -32,6 +32,9 @@ antepFistikliKruvasan: 410,
 antepFistikliVisneliKruvasan: 430,
 
     // Poğaçalar
+siyezPogaca: 85,
+karabugdayPogaca: 100,
+dereotluPogaca: 100,
 
     // Tatlılar
 
