@@ -8,6 +8,13 @@ const prices = {
  karpuzSimitTabagi: 320,
 
     // Tartineler
+capreseTartine: 420,
+avokadoTartine: 430,
+kozBiberTartine: 430,
+hindiFumeTartine: 450,
+rozbifTartine: 460,
+kestaneMantariTartine: 450,
+karadutHellimTartine: 460,
 
     // Kruvasan Sandviçler
 capreseKruvasan: 420,
