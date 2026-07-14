@@ -83,6 +83,13 @@ eksiMayaliKarabugdayEkmegi: 250,
 briocheEkmegi: 320,
 
     // Tezgah Ürünleri
+cilekReceli: 320,
+acuka: 350,
+eksiMayaKruton: 150,
+granolaPaket: 180,
+karabugdayGranola: 220,
+zeytinyagiCamSise: 500,
+zeytinyagiMetalKutu: 470,
 
     // Sporcu Menüsü
 balanceBowl: 0,
