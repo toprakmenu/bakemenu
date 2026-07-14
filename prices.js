@@ -21,6 +21,15 @@ focacciaHindiFume: 440,
 focacciaRozbif: 460,
 
     // Kruvasanlar
+sadeKruvasan: 180,
+patlicanliDanish: 250,
+cikolataliKruvasan: 200,
+bademliKruvasan: 380,
+ormanMeyveliDanish: 230,
+pastaciKremaliCilekliKruvasan: 400,
+findikEzmeliMuzluKruvasan: 400,
+antepFistikliKruvasan: 410,
+antepFistikliVisneliKruvasan: 430,
 
     // Poğaçalar
 
