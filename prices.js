@@ -39,6 +39,17 @@ dereotluPogaca: 100,
     // Tatlılar
 
     // Sıcak İçecekler
+cay: 70,
+fincanCay: 100,
+turkKahvesi: 140,
+filtreKahve: 190,
+americano: 200,
+espresso: 150,
+latte: 230,
+cappuccino: 230,
+flatWhite: 230,
+cortado: 210,
+bitkiCaylari: 180,
 
     // Soğuk İçecekler
 
